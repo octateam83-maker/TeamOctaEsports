@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team OctaEsports | Official BGMI Organization</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        esports: {
+                            dark: '#0a0a0c',
+                            card: '#121217',
+                            border: '#22222d',
+                            red: '#ff1e38',
+                            darkred: '#cc001b',
+                            lightred: '#ff4d63'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0c;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Rajdhani', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .hero-glow {
+            background: radial-gradient(circle at center, rgba(255, 30, 56, 0.15) 0%, rgba(10, 10, 12, 0) 70%);
+        }
+        .card-glow:hover {
+            box-shadow: 0 0 25px rgba(255, 30, 56, 0.35);
+            border-color: rgba(255, 30, 56, 0.6);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0c;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #22222d;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff1e38;
+        }
+    </style>
+</head>
+<body class="bg-esports-dark text-gray-100 antialiased selection:bg-esports-red selection:text-white">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-esports-dark/90 backdrop-blur-md border-b border-esports-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-lg bg-esports-red/10 border border-esports-red/30 flex items-center justify-center p-1 group-hover:border-esports-red transition-all">
+                    <img src="assets/logo.png" alt="Team OctaEsports Logo" class="w-full h-full object-contain">
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-heading font-bold text-xl tracking-wider text-white">TEAM <span class="text-esports-red">OCTA</span></span>
+                    <span class="text-[10px] tracking-widest text-gray-400 font-semibold uppercase">Esports Organization</span>
+                </div>
+            </a>
+
+            <div class="hidden lg:flex items-center space-x-8 text-sm font-semibold tracking-wider">
+                <a href="#home" class="text-gray-300 hover:text-esports-red transition-colors">HOME</a>
+                <a href="#about" class="text-gray-300 hover:text-esports-red transition-colors">ABOUT</a>
+                <a href="#history" class="text-gray-300 hover:text-esports-red transition-colors">HISTORY</a>
+                <a href="#owners" class="text-gray-300 hover:text-esports-red transition-colors">OWNERS</a>
+                <a href="#roster" class="text-gray-300 hover:text-esports-red transition-colors">BGMI ROSTER</a>
+                <a href="#socials" class="text-gray-300 hover:text-esports-red transition-colors">SOCIALS</a>
+                <a href="#contact" class="text-gray-300 hover:text-esports-red transition-colors">CONTACT</a>
+            </div>
+
+            <div class="hidden sm:flex items-center">
+                <a href="#sponsorship" class="relative inline-flex items-center justify-center px-6 py-2.5 text-xs font-bold tracking-widest uppercase text-white bg-esports-red hover:bg-esports-darkred transition-all duration-300 shadow-lg shadow-esports-red/20 border border-esports-red">
+                    <span>APPLY FOR SPONSORSHIP ↗</span>
+                </a>
+            </div>
+
+            <button id="menu-btn" class="lg:hidden text-gray-300 hover:text-white focus:outline-none">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden bg-esports-card border-b border-esports-border px-4 pt-2 pb-6 space-y-3">
+            <a href="#home" class="block text-gray-300 hover:text-esports-red font-semibold py-2">HOME</a>
+            <a href="#about" class="block text-gray-300 hover:text-esports-red font-semibold py-2">ABOUT</a>
+            <a href="#history" class="block text-gray-300 hover:text-esports-red font-semibold py-2">HISTORY</a>
+            <a href="#owners" class="block text-gray-300 hover:text-esports-red font-semibold py-2">OWNERS</a>
+            <a href="#roster" class="block text-gray-300 hover:text-esports-red font-semibold py-2">BGMI ROSTER</a>
+            <a href="#socials" class="block text-gray-300 hover:text-esports-red font-semibold py-2">SOCIALS</a>
+            <a href="#contact" class="block text-gray-300 hover:text-esports-red font-semibold py-2">CONTACT</a>
+            <div class="pt-2">
+                <a href="#sponsorship" class="block text-center w-full py-3 bg-esports-red text-white font-bold text-xs tracking-widest uppercase">APPLY FOR SPONSORSHIP ↗</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-20 hero-glow overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(#22222d_1px,transparent_1px)] [background-size:32px_32px] opacity-30"></div>
+        <div class="absolute -top-40 -right-40 w-96 h-96 bg-esports-red/10 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-esports-red/10 border border-esports-red/30 mb-8 animate-pulse">
+                <span class="w-2 h-2 rounded-full bg-esports-red"></span>
+                <span class="text-xs font-bold tracking-widest text-esports-lightred uppercase">Founded 01 January 2026 • Official BGMI Organization</span>
+            </div>
+            
+            <h1 class="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight text-white mb-6">
+                DOMINATE THE <span class="text-transparent bg-clip-text bg-gradient-to-r from-esports-red to-esports-lightred">BATTLEGROUND</span>
+            </h1>
+            
+            <p class="max-w-2xl mx-auto text-lg sm:text-xl text-gray-400 mb-10 font-normal">
+                We are <strong class="text-white">Team OctaEsports</strong> — an elite Indian competitive gaming powerhouse forged with precision, unbreakable grit, and unmatched BGMI strategy.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#roster" class="w-full sm:w-auto px-8 py-4 bg-esports-red hover:bg-esports-darkred text-white font-bold text-sm tracking-widest uppercase transition-all shadow-xl shadow-esports-red/30 border border-esports-red">
+                    EXPLORE BGMI ROSTER
+                </a>
+                <a href="#sponsorship" class="w-full sm:w-auto px-8 py-4 bg-esports-card hover:bg-esports-border text-white font-bold text-sm tracking-widest uppercase transition-all border border-esports-border">
+                    PARTNER WITH US ↗
+                </a>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 max-w-4xl mx-auto border-t border-b border-esports-border py-8 bg-esports-card/50 backdrop-blur-sm">
+                <div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white font-heading">01</div>
+                    <div class="text-xs tracking-wider text-gray-400 uppercase mt-1">Founded Jan 2026</div>
+                </div>
+                <div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-esports-red font-heading">BGMI</div>
+                    <div class="text-xs tracking-wider text-gray-400 uppercase mt-1">Main Esports Title</div>
+                </div>
+                <div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white font-heading">06</div>
+                    <div class="text-xs tracking-wider text-gray-400 uppercase mt-1">Elite Athletes</div>
+                </div>
+                <div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-esports-red font-heading">100%</div>
+                    <div class="text-xs tracking-wider text-gray-400 uppercase mt-1">Competitive Drive</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT US SECTION -->
+    <section id="about" class="py-24 bg-esports-dark relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-flex items-center gap-2 text-esports-red font-bold text-xs tracking-widest uppercase mb-3">
+                        <i class="fa-solid fa-shield-halved"><span>WHO WE ARE</span></i>
+                    </div>
+                    <h2 class="text-3xl sm:text-5xl font-black text-white mb-6">
+                        FORGED IN SCRIMS, <br>BUILT FOR <span class="text-esports-red">CHAMPIONSHIPS</span>.
+                    </h2>
+                    <p class="text-gray-400 text-base leading-relaxed mb-6">
+                        Team OctaEsports was established on January 1, 2026, by co-owners Nova and OExA1PHA (Naved Patel) with a singular mission: to build a premier, disciplined, and formidable BGMI esports organization from India. 
+                    </p>
+                    <p class="text-gray-400 text-base leading-relaxed mb-8">
+                        Operating with rigorous daily practice, tactical discipline, and relentless ambition, our roster actively contends in high-tier scrims and major official qualifiers across the nation.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="p-5 bg-esports-card border border-esports-border">
+                            <div class="text-esports-red font-heading text-2xl font-bold mb-1">TACTICAL RIGOR</div>
+                            <p class="text-xs text-gray-400">Intense strategic zone rotations and synchronized teamfights.</p>
+                        </div>
+                        <div class="p-5 bg-esports-card border border-esports-border">
+                            <div class="text-esports-red font-heading text-2xl font-bold mb-1">TRUE SYNERGY</div>
+                            <p class="text-xs text-gray-400">Unshakable trust and chemistry among all six core players.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-esports-red/20 to-transparent rounded-2xl filter blur-xl"></div>
+                    <div class="relative bg-esports-card border border-esports-border p-8 rounded-2xl">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-16 h-16 bg-esports-red/10 border border-esports-red/30 rounded-xl flex items-center justify-center p-2">
+                                <img src="assets/logo.png" alt="Logo" class="w-full h-full object-contain">
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-white font-heading">TEAM OCTAESPORTS</h3>
+                                <p class="text-xs text-esports-red">Official Organization Profile</p>
+                            </div>
+                        </div>
+                        <ul class="space-y-4 text-sm text-gray-300">
+                            <li class="flex items-center justify-between border-b border-esports-border pb-3">
+                                <span class="text-gray-400">Founded Date</span>
+                                <span class="font-semibold text-white">01 January 2026</span>
+                            </li>
+                            <li class="flex items-center justify-between border-b border-esports-border pb-3">
+                                <span class="text-gray-400">Co-Owners</span>
+                                <span class="font-semibold text-white">Nova & OExA1PHA</span>
+                            </li>
+                            <li class="flex items-center justify-between border-b border-esports-border pb-3">
+                                <span class="text-gray-400">Primary Discipline</span>
+                                <span class="font-semibold text-white">BGMI (Battlegrounds Mobile India)</span>
+                            </li>
+                            <li class="flex items-center justify-between border-b border-esports-border pb-3">
+                                <span class="text-gray-400">Official Contact</span>
+                                <span class="font-semibold text-esports-lightred">octateam83@gmail.com</span>
+                            </li>
+                            <li class="flex items-center justify-between">
+                                <span class="text-gray-400">Current Status</span>
+                                <span class="font-semibold text-green-400 flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span> Active in Scrims & Majors</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM HISTORY SECTION -->
+    <section id="history" class="py-24 bg-esports-card/30 border-t border-b border-esports-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-esports-red font-bold text-xs tracking-widest uppercase">OUR JOURNEY</span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white mt-2 mb-4">THE HISTORY OF TEAM OCTAESPORTS</h2>
+                <p class="text-gray-400 text-sm">Our Journey. Our Ambition. Our Legacy.</p>
+            </div>
+
+            <!-- Full Narrative Container -->
+            <div class="space-y-8 max-w-4xl mx-auto text-gray-300 text-sm leading-relaxed">
+                <div class="bg-esports-card border border-esports-border p-8 rounded-xl">
+                    <p class="mb-4">
+                        Founded on <strong class="text-white">1 January 2026</strong>, Team OctaEsports began its journey with a vision to build a competitive esports organization driven by passion, teamwork, discipline, and continuous improvement. Built around the world of Battlegrounds Mobile India (BGMI), Octa represents a new generation of players determined to develop their skills, compete against strong opponents, and create their own identity in India's growing esports scene.
+                    </p>
+                    <p>
+                        From the beginning, Team OctaEsports has focused on more than just playing the game. The organization aims to create a competitive environment where players can practice together, learn from every match, strengthen their coordination, and work towards bigger opportunities in esports.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-esports-card border border-esports-border p-6 rounded-xl">
+                        <div class="text-esports-red font-bold text-xs tracking-widest uppercase mb-2">JANUARY 2026</div>
+                        <h3 class="text-xl font-bold text-white mb-3 font-heading">The Beginning</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed">
+                            Every esports organization starts with a vision. With <strong class="text-white">Nova and OExA1PHA (Naved Patel)</strong> serving as co-owners, the organization began developing its identity, building its roster, and working towards establishing a presence in the BGMI competitive community. The early journey has been about laying a strong foundation: bringing players together, developing team chemistry, establishing roles, and creating an environment where individual talent can contribute to collective success.
+                        </p>
+                    </div>
+
+                    <div class="bg-esports-card border border-esports-border p-6 rounded-xl">
+                        <div class="text-esports-red font-bold text-xs tracking-widest uppercase mb-2">PRACTICE & RIGOR</div>
+                        <h3 class="text-xl font-bold text-white mb-3 font-heading">Building the Competitive Foundation</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed">
+                            Practice is an essential part of every competitive team's development. Team OctaEsports has participated in regular scrims with <strong class="text-white">Tortuga Esports</strong> and <strong class="text-white">Arise Gaming</strong>, using these opportunities to improve coordination, decision-making, combat execution, rotations, and overall team performance. For Octa, progress is built through repeated effort, teamwork, and the willingness to improve.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-esports-card border border-esports-border p-8 rounded-xl">
+                    <div class="text-esports-red font-bold text-xs tracking-widest uppercase mb-2">OFFICIAL TOURNAMENTS</div>
+                    <h3 class="text-2xl font-bold text-white mb-4 font-heading">Entering the Competitive Arena</h3>
+                    <ul class="space-y-3 text-sm text-gray-300">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-fire text-esports-red mt-1"></i>
+                            <span>Participated in the in-game qualifiers for <strong class="text-white">KRAFTON × TRIDENT: Ignite The Spark</strong>, gaining valuable experience in a intense competitive tournament environment.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-trophy text-esports-red mt-1"></i>
+                            <span>Played Round 1 of <strong class="text-white">BGMI: NAYE KHILADI</strong>, marking another step in its ongoing competitive journey and reflecting its ambition to challenge itself against top national teams.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-esports-card border border-esports-border p-8 rounded-xl text-center">
+                    <span class="text-esports-red font-bold text-xs tracking-widest uppercase">THE OCTA IDENTITY</span>
+                    <h3 class="text-2xl font-bold text-white mt-1 mb-3 font-heading">BUILT TO DOMINATE</h3>
+                    <p class="text-gray-400 text-xs max-w-2xl mx-auto leading-relaxed">
+                        Team OctaEsports stands for ambition, consistency, teamwork, and growth. We are a developing esports organization, building our identity one match at a time. Our story is still being written, and our goal is to keep moving forward with the same determination that started our journey.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OWNERS SECTION -->
+    <section id="owners" class="py-24 bg-esports-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-esports-red font-bold text-xs tracking-widest uppercase">LEADERSHIP</span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white mt-2 mb-4">ORGANIZATION OWNERS</h2>
+                <p class="text-gray-400 text-sm">The visionary leaders driving Team OctaEsports forward into competitive excellence.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Owner 1 -->
+                <div class="bg-esports-card border border-esports-border rounded-xl overflow-hidden card-glow transition-all flex flex-col">
+                    <div class="h-80 w-full relative overflow-hidden bg-esports-dark">
+                        <img src="assets/nova.jpg" alt="Nova" class="w-full h-full object-cover object-top filter grayscale contrast-125 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <div class="p-6 flex flex-col justify-between flex-grow">
+                        <div>
+                            <span class="text-xs font-bold text-esports-red tracking-widest uppercase">CO-OWNER & PLAYER</span>
+                            <h3 class="text-2xl font-black text-white mt-1 mb-2 font-heading">NOVA</h3>
+                            <p class="text-xs text-gray-400 mb-4">Assaulter + FreeMan</p>
+                            <p class="text-xs text-gray-300 mb-6">"I don't play to be average, I play to frag." Co-leading Team OctaEsports with unyielding tactical aggression.</p>
+                        </div>
+                        <a href="https://www.instagram.com/_itz_official_nawaz_/" target="_blank" class="inline-flex items-center justify-center gap-2 w-full py-2.5 bg-esports-dark border border-esports-border hover:border-esports-red text-xs font-bold text-white transition-all">
+                            <i class="fa-brands fa-instagram text-esports-red"></i> INSTAGRAM
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Owner 2 -->
+                <div class="bg-esports-card border border-esports-border rounded-xl overflow-hidden card-glow transition-all flex flex-col">
+                    <div class="h-80 w-full relative overflow-hidden bg-esports-dark">
+                        <img src="assets/alpha.png" onerror="this.onerror=null; this.src='assets/naved photo.PNG';" alt="Naved Patel (OExA1PHA)" class="w-full h-full object-cover object-top filter grayscale contrast-125 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <div class="p-6 flex flex-col justify-between flex-grow">
+                        <div>
+                            <span class="text-xs font-bold text-esports-red tracking-widest uppercase">CO-OWNER & PLAYER</span>
+                            <h3 class="text-2xl font-black text-white mt-1 mb-2 font-heading">OExA1PHA</h3>
+                            <p class="text-xs text-gray-400 mb-1">Naved Patel</p>
+                            <p class="text-xs text-gray-400 mb-4">Support + Fragger</p>
+                            <p class="text-xs text-gray-300 mb-6">Co-founding pillar of Team OctaEsports, ensuring bulletproof support and tactical map control.</p>
+                        </div>
+                        <a href="https://www.instagram.com/navedpatel_2/" target="_blank" class="inline-flex items-center justify-center gap-2 w-full py-2.5 bg-esports-dark border border-esports-border hover:border-esports-red text-xs font-bold text-white transition-all">
+                            <i class="fa-brands fa-instagram text-esports-red"></i> INSTAGRAM
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BGMI ROSTER SECTION -->
+    <section id="roster" class="py-24 bg-esports-card/20 border-t border-esports-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-esports-red font-bold text-xs tracking-widest uppercase">MAIN LINEUP</span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white mt-2 mb-4">CURRENT BGMI ROSTER</h2>
+                <p class="text-gray-400 text-sm">Six elite athletes dedicated to dominating every lobby, clutch situation, and tournament.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Player 1: Nova -->
+                <div class="bg-esports-card border border-esports-border rounded-xl overflow-hidden card-glow transition-all group flex flex-col">
+                    <div class="h-80 relative overflow-hidden bg-esports-dark">
+                        <img src="assets/nova.jpg" alt="Nova" class="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-500">
+                        <span class="absolute top-4 left-4 bg-esports-red text-white text-[10px] font-bold px-2.5 py-1 tracking-widest uppercase">CO-OWNER</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between">
+                        <div>
+                            <div class="text-xs font-bold text-esports-red tracking-wider uppercase mb-1">Assaulter + FreeMan</div>
+                            <h3 class="text-2xl font-black text-white mb-4 font-heading">NOVA</h3>
+                        </div>
+                        <a href="https://www.instagram.com/_itz_official_nawaz_/" target="_blank" class="flex items-center justify-center gap-2 w-full py-2.5 bg-esports-dark border border-esports-border hover:border-esports-red text-xs font-bold text-white transition-all">
+                            <i class="fa-brands fa-instagram text-esports-red"></i> INSTAGRAM PROFILE
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Player 2: OExA1PHA -->
+                <div class="bg-esports-card border border-esports-border rounded-xl overflow-hidden card-glow transition-all group flex flex-col">
+                    <div class="h-80 relative overflow-hidden bg-esports-dark">
+                        <img src="assets/alpha.png" onerror="this.onerror=null; this.src='assets/naved photo.PNG';" alt="OExA1PHA" class="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-500">
+                        <span class="absolute top-4 left-4 bg-esports-red text-white text-[10px] font-bold px-2.5 py-1 tracking-widest uppercase">CO-OWNER</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between">
+                        <div>
+                            <div class="text-xs font-bold text-esports-red tracking-wider uppercase mb-1">Support + Fragger • Naved Patel</div>
+                            <h3 class="text-2xl font-black text-white mb-4 font-heading">OExA1PHA</h3>
+                        </div>
+                        <a href="https://www.instagram.com/navedpatel_2/" target="_blank" class="flex items-center justify-center gap-2 w-full py-2.5 bg-esports-dark border border-esports-border hover:border-esports-red text-xs font-bold text-white transition-all">
+                            <i class="fa-brands fa-instagram text-esports-red"></i> INSTAGRAM PROFILE
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Player 3: OExTeslaa -->
+                <div class="bg-esports-card border border-esports-border rounded-xl overflow-hidden card-glow transition-all group flex flex-col">
+                    <div class="h-80 relative overflow-hidden bg-esports-dark flex items-center justify-center bg-gradient-to-br from-esports-card to-esports-border">
+                        <div class="text-center p-6">
+                            <div class="w-20 h-20 mx-auto rounded-full bg-esports-red/10 border border-esports-red/30 flex items-center justify-center text-esports-red mb-4">
+                                <i class="fa-solid fa-bolt text-3xl"></i>
+                            </div>
+                            <span class="text-xs font-mono text-gray-400">TEAM OCTAESPORTS ATHLETE</span>
+                        </div>
+                        <span class="absolute top-4 left-4 bg-esports-border text-white text-[10px] font-bold px-2.5 py-1 tracking-widest uppercase">ACTIVE</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between">
+                        <div>
+                            <div class="text-xs font-bold text-esports-red tracking-wider uppercase mb-1">Assaulter + FreeMan</div>
+                            <h3 class="text-2xl font-black text-white mb-4 font-heading">OExTeslaa</h3>
+                        </div>
+                        <a href="https://www.instagram.com/aryan_samal_/" target="_blank" class="flex items-center justify-center gap-2 w-full py-2.5 bg-esports-dark border border-esports-border hover:border-esports-red text-xs font-bold text-white transition-all">
+                            <i class="fa-brands fa-instagram text-esports-red"></i> INSTAGRAM PROFILE
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Player 4: OExNARUTO -->
+                <div class="bg-esports-card border border-esports-border rounded-xl overflow-hidden card-glow transition-all group flex flex-col">
+                    <div class="h-80 relative overflow-hidden bg-esports-dark">
+                        <img src="assets/naruto.jpeg" alt="OExNARUTO" class="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-500">
+                        <span class="absolute top-4 left-4 bg-esports-border text-white text-[10px] font-bold px-2.5 py-1 tracking-widest uppercase">ACTIVE</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between">
+                        <div>
+                            <div class="text-xs font-bold text-esports-red tracking-wider uppercase mb-1">Fragger • Rayan</div>
+                            <h3 class="text-2xl font-black text-white mb-4 font-heading">OExNARUTO</h3>
+                        </div>
+                        <a href="https://www.instagram.com/just_ryan6565/" target="_blank" class="flex items-center justify-center gap-2 w-full py-2.5 bg-esports-dark border border-esports-border hover:border-esports-red text-xs font-bold text-white transition-all">
+                            <i class="fa-brands fa-instagram text-esports-red"></i> INSTAGRAM PROFILE
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Player 5: OExGREED -->
+                <div class="bg-esports-card border border-esports-border rounded-xl overflow-hidden card-glow transition-all group flex flex-col">
+                    <div class="h-80 relative overflow-hidden bg-esports-dark">
+                        <img src="assets/greed.jpeg" alt="OExGREED" class="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-500">
+                        <span class="absolute top-4 left-4 bg-esports-border text-white text-[10px] font-bold px-2.5 py-1 tracking-widest uppercase">ACTIVE</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between">
+                        <div>
+                            <div class="text-xs font-bold text-esports-red tracking-wider uppercase mb-1">Support</div>
+                            <h3 class="text-2xl font-black text-white mb-4 font-heading">OExGREED</h3>
+                        </div>
+                        <a href="https://www.instagram.com/_greeed__/" target="_blank" class="flex items-center justify-center gap-2 w-full py-2.5 bg-esports-dark border border-esports-border hover:border-esports-red text-xs font-bold text-white transition-all">
+                            <i class="fa-brands fa-instagram text-esports-red"></i> INSTAGRAM PROFILE
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Player 6: OExLUNAR -->
+                <div class="bg-esports-card border border-esports-border rounded-xl overflow-hidden card-glow transition-all group flex flex-col">
+                    <div class="h-80 relative overflow-hidden bg-esports-dark">
+                        <img src="assets/lunar.jpg" onerror="this.onerror=null; this.src='assets/sarthak.PNG';" alt="OExLUNAR" class="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-500">
+                        <span class="absolute top-4 left-4 bg-esports-border text-white text-[10px] font-bold px-2.5 py-1 tracking-widest uppercase">ACTIVE</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between">
+                        <div>
+                            <div class="text-xs font-bold text-esports-red tracking-wider uppercase mb-1">Fragger + Support • Sarthak</div>
+                            <h3 class="text-2xl font-black text-white mb-4 font-heading">OExLUNAR</h3>
+                        </div>
+                        <a href="https://www.instagram.com/its_me_sarthak25/" target="_blank" class="flex items-center justify-center gap-2 w-full py-2.5 bg-esports-dark border border-esports-border hover:border-esports-red text-xs font-bold text-white transition-all">
+                            <i class="fa-brands fa-instagram text-esports-red"></i> INSTAGRAM PROFILE
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL MEDIA SECTION -->
+    <section id="socials" class="py-24 bg-esports-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-esports-red font-bold text-xs tracking-widest uppercase">STAY CONNECTED</span>
+            <h2 class="text-3xl sm:text-5xl font-black text-white mt-2 mb-4">OFFICIAL CHANNELS</h2>
+            <p class="text-gray-400 text-sm max-w-xl mx-auto mb-16">Follow our official channels for tournament updates, highlights, scrim broadcasts, and team announcements.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                <a href="https://www.instagram.com/teamoctaofficial/" target="_blank" class="p-8 bg-esports-card border border-esports-border hover:border-esports-red rounded-xl card-glow transition-all flex flex-col items-center group">
+                    <div class="w-16 h-16 rounded-full bg-esports-red/10 border border-esports-red/30 flex items-center justify-center text-esports-red text-3xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2 font-heading">INSTAGRAM</h3>
+                    <p class="text-xs text-gray-400 mb-6">@teamoctaofficial</p>
+                    <span class="text-xs font-bold tracking-widest text-esports-red uppercase flex items-center gap-2">VISIT PROFILE ↗</span>
+                </a>
+
+                <a href="https://www.youtube.com/@TeamOcta-f1j" target="_blank" class="p-8 bg-esports-card border border-esports-border hover:border-esports-red rounded-xl card-glow transition-all flex flex-col items-center group">
+                    <div class="w-16 h-16 rounded-full bg-esports-red/10 border border-esports-red/30 flex items-center justify-center text-esports-red text-3xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2 font-heading">YOUTUBE</h3>
+                    <p class="text-xs text-gray-400 mb-6">@TeamOcta-f1j</p>
+                    <span class="text-xs font-bold tracking-widest text-esports-red uppercase flex items-center gap-2">WATCH CHANNEL ↗</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-24 bg-esports-card/30 border-t border-esports-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+            <span class="text-esports-red font-bold text-xs tracking-widest uppercase">GET IN TOUCH</span>
+            <h2 class="text-3xl sm:text-5xl font-black text-white mt-2 mb-4">DIRECT INQUIRIES</h2>
+            <p class="text-gray-400 text-sm mb-10">Have questions, business proposals, or media inquiries? Reach out to our official email.</p>
+            
+            <div class="inline-flex items-center gap-4 px-8 py-5 bg-esports-card border border-esports-border rounded-xl">
+                <i class="fa-solid fa-envelope text-esports-red text-2xl"></i>
+                <div class="text-left">
+                    <div class="text-xs text-gray-400 uppercase tracking-wider">Official Email Address</div>
+                    <a href="mailto:octateam83@gmail.com" class="text-lg sm:text-xl font-bold text-white hover:text-esports-red transition-colors font-mono">octateam83@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARTNER WITH OCTA & SPONSORSHIP APPLICATION FORM -->
+    <section id="sponsorship" class="py-24 bg-esports-dark relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-esports-red font-bold text-xs tracking-widest uppercase">COLLABORATE</span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white mt-2 mb-4">PARTNER WITH OCTA</h2>
+                <p class="text-gray-400 text-sm max-w-2xl mx-auto">
+                    "Grow with Team OctaEsports. We welcome brands, gaming gear companies, mobile brands, energy drink companies, apparel brands, and potential sponsors to collaborate with our growing esports organization."
+                </p>
+            </div>
+
+            <div class="bg-esports-card border border-esports-border p-8 sm:p-12 rounded-2xl relative shadow-2xl">
+                <div class="absolute top-0 right-0 transform translate-x-2 -translate-y-2">
+                    <span class="bg-esports-red text-white text-[10px] font-bold px-3 py-1 uppercase tracking-widest shadow-md">SECURE FORM</span>
+                </div>
+
+                <form action="https://formsubmit.co/octateam83@gmail.com" method="POST" class="space-y-6">
+                    <input type="hidden" name="_subject" value="New Sponsorship Application - Team OctaEsports">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="true">
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Brand / Company Name *</label>
+                            <input type="text" name="Brand_Name" required class="w-full bg-esports-dark border border-esports-border rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-esports-red transition-colors" placeholder="e.g. Apex Gaming Gear">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Contact Person *</label>
+                            <input type="text" name="Contact_Person" required class="w-full bg-esports-dark border border-esports-border rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-esports-red transition-colors" placeholder="e.g. Rahul Sharma">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Business Email *</label>
+                            <input type="email" name="Business_Email" required class="w-full bg-esports-dark border border-esports-border rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-esports-red transition-colors" placeholder="rahul@brand.com">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Brand Category *</label>
+                            <select name="Brand_Category" required class="w-full bg-esports-dark border border-esports-border rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-esports-red transition-colors">
+                                <option value="" disabled selected>Select category...</option>
+                                <option value="Gaming Gear">Gaming Gear</option>
+                                <option value="Mobile">Mobile</option>
+                                <option value="Energy Drink">Energy Drink</option>
+                                <option value="Apparel">Apparel</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Sponsorship Type *</label>
+                            <select name="Sponsorship_Type" required class="w-full bg-esports-dark border border-esports-border rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-esports-red transition-colors">
+                                <option value="" disabled selected>Select type...</option>
+                                <option value="Product Sponsorship">Product Sponsorship</option>
+                                <option value="Financial Sponsorship">Financial Sponsorship</option>
+                                <option value="Brand Collaboration">Brand Collaboration</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Budget / Products Offered (Optional)</label>
+                            <input type="text" name="Budget_Or_Products" class="w-full bg-esports-dark border border-esports-border rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-esports-red transition-colors" placeholder="e.g. 5 Gaming Headsets / INR 50k">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Message / Proposal *</label>
+                        <textarea name="Proposal_Message" rows="5" required class="w-full bg-esports-dark border border-esports-border rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-esports-red transition-colors resize-none" placeholder="Tell us about your brand proposal and partnership goals..."></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 bg-esports-red hover:bg-esports-darkred text-white font-bold text-xs tracking-widest uppercase transition-all shadow-xl shadow-esports-red/20 border border-esports-red">
+                        SUBMIT SPONSORSHIP APPLICATION ↗
+                    </button>
+                    
+                    <p class="text-[11px] text-center text-gray-500 mt-2">Applications are delivered securely and instantly to octateam83@gmail.com.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-esports-dark border-t border-esports-border py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8 mb-8">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-esports-red/10 border border-esports-red/30 flex items-center justify-center p-1">
+                        <img src="assets/logo.png" alt="Logo" class="w-full h-full object-contain">
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-heading font-bold text-xl tracking-wider text-white">TEAM <span class="text-esports-red">OCTA</span></span>
+                        <span class="text-[10px] tracking-widest text-gray-400 font-semibold uppercase">Esports Organization</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-center gap-6 text-xs font-semibold text-gray-400">
+                    <a href="#home" class="hover:text-esports-red transition-colors">HOME</a>
+                    <a href="#about" class="hover:text-esports-red transition-colors">ABOUT</a>
+                    <a href="#history" class="hover:text-esports-red transition-colors">HISTORY</a>
+                    <a href="#roster" class="hover:text-esports-red transition-colors">BGMI ROSTER</a>
+                    <a href="#sponsorship" class="hover:text-esports-red transition-colors">PARTNER WITH US</a>
+                    <a href="#contact" class="hover:text-esports-red transition-colors">CONTACT</a>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <a href="https://www.instagram.com/teamoctaofficial/" target="_blank" class="w-10 h-10 rounded-lg bg-esports-card border border-esports-border hover:border-esports-red flex items-center justify-center text-gray-300 hover:text-esports-red transition-all">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@TeamOcta-f1j" target="_blank" class="w-10 h-10 rounded-lg bg-esports-card border border-esports-border hover:border-esports-red flex items-center justify-center text-gray-300 hover:text-esports-red transition-all">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="border-t border-esports-border pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
+                <p>&copy; 2026 Team OctaEsports. All rights reserved.</p>
+                <p class="mt-2 sm:mt-0">Founded 01 January 2026 • Official BGMI Organization</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
